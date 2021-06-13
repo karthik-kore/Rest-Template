@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class controller {
-    final String ri="http://localhost:8080/student";
+    final String uri="http://localhost:8080/student";
     @Autowired
     RestTemplate restTemplate;
     @RequestMapping(value = "/get")
@@ -25,7 +25,7 @@ public class controller {
     public String postRest(@RequestBody student k){
         HttpHeaders headers=new HttpHeaders();
         HttpEntity<Object> entity=new HttpEntity<Object>(k,headers);
-        return restTemplate.exchange(ri,HttpMethod.POST,entity,String.class).getBody();
+        return restTemplate.exchange(uri,HttpMethod.POST,entity,String.class).getBody();
 
     }
 }
